@@ -2,6 +2,9 @@
     Mixins, variables, etc
 */
 
+$main-color:    tomato;
+$article-color: gold;
+
 @mixin flexbox() {
   display: -webkit-box;
   display: -moz-box;
@@ -34,7 +37,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  min-width: 800px;
 }
 
 header, footer, article, nav, aside { display: block; }
@@ -42,8 +45,8 @@ header, footer, article, nav, aside { display: block; }
 .content {
   @include flexbox();
   -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  justify-content: space-between;
+          flex-flow: row wrap;
+  align-itmes: baseline;
   margin: 0 40px;
 }
 
@@ -57,6 +60,11 @@ header, footer, article, nav, aside { display: block; }
   margin: 0 4%;
 }
 
+#main article {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
 .content > nav {
   @include flex(1 6 12%);
   @include order(1);
@@ -65,4 +73,56 @@ header, footer, article, nav, aside { display: block; }
 .content > aside {
   @include flex(1 6 20%);
   @include order(3);
+}
+
+.content > footer {
+  @include flex(1 100%);
+  @include order(4);
+}
+
+
+/*
+    Typography
+*/
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6em;
+}
+
+h1 {
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+
+/*
+    Small & Large Screens
+*/
+
+@media all and (min-width: 1400px) {
+
+  #main article {
+    font-size: 1.2em;
+    line-height: 1.8em;
+    max-width: 710px;
+  }
+
+  article > p {
+    margin-top: 9px;
+  }
+}
+
+
+/*
+    Additional
+*/
+
+.colored { background: $main-color; }
+
+#main article.colored { background: $article-color; }
+
+#toggle-grid {
+  margin: 0;
+  width: 150px;
 }

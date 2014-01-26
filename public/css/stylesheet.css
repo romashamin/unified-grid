@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  min-width: 800px; }
 
 header, footer, article, nav, aside {
   display: block; }
@@ -20,7 +20,7 @@ header, footer, article, nav, aside {
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-  justify-content: space-between;
+  align-itmes: baseline;
   margin: 0 40px; }
 
 .content > header {
@@ -42,6 +42,10 @@ header, footer, article, nav, aside {
   -webkit-order: 2;
   order: 2;
   margin: 0 4%; }
+
+#main article {
+  margin: 0 auto;
+  max-width: 600px; }
 
 .content > nav {
   -webkit-box-flex: 1 6 12%;
@@ -66,3 +70,50 @@ header, footer, article, nav, aside {
   -ms-flex-order: 3;
   -webkit-order: 3;
   order: 3; }
+
+.content > footer {
+  -webkit-box-flex: 1 100%;
+  -moz-box-flex: 1 100%;
+  -webkit-flex: 1 100%;
+  -ms-flex: 1 100%;
+  flex: 1 100%;
+  -webkit-box-ordinal-group: 4;
+  -moz-box-ordinal-group: 4;
+  -ms-flex-order: 4;
+  -webkit-order: 4;
+  order: 4; }
+
+/*
+    Typography
+*/
+body {
+  font-family: sans-serif;
+  line-height: 1.6em; }
+
+h1 {
+  font-weight: 300;
+  letter-spacing: -1px; }
+
+/*
+    Small & Large Screens
+*/
+@media all and (min-width: 1400px) {
+  #main article {
+    font-size: 1.2em;
+    line-height: 1.8em;
+    max-width: 710px; }
+
+  article > p {
+    margin-top: 9px; } }
+/*
+    Additional
+*/
+.colored {
+  background: tomato; }
+
+#main article.colored {
+  background: gold; }
+
+#toggle-grid {
+  margin: 0;
+  width: 150px; }
